@@ -19,6 +19,7 @@ internal class Program
             var grammar = new Grammar(grammarBuilder);
 
             recognizer.LoadGrammar(grammar);
+            bool exitProgram = false; // Initialize a flag to control program exit
 
             recognizer.SpeechRecognized +=  (s, e) =>
             {
@@ -57,6 +58,9 @@ internal class Program
                             synthesizer.Speak("Apagando la computadora en 5 segundos.");
                             System.Diagnostics.Process.Start("shutdown", "/s /t 10"); // Initiates shutdown in 10 seconds
                             break;
+                        case "salir": // Add a new case for the exit command
+                            exitProgram = true;
+                            break;
                     }
                 }
             };
@@ -64,8 +68,14 @@ internal class Program
             recognizer.SetInputToDefaultAudioDevice();
             recognizer.RecognizeAsync(RecognizeMode.Multiple);
 
-            Console.WriteLine("Listening... Press any key to exit.");
-            Console.ReadKey();
+            Console.WriteLine("Escuchando... Dí 'salir' para terminar.");
+
+            // Continue running the loop until the user says "salir"
+            while (!exitProgram)
+            {
+                // You can add any other background tasks or conditions here if needed
+                // For example, you can perform other actions while waiting for the user's command
+            }
         }
         
     }

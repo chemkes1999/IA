@@ -12,7 +12,8 @@ public static class SpeechCommands
             "quien es tu creador",
             "cantame",
             "que hora es",
-            "apagar la computadora"
+            "apagar la computadora",
+            "salir"
         );
     }
 }
