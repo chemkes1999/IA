@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tbl7mm67RZ5TG6Roi7T29EU8RBRbiUr9X1SJGujWbGwyJ3KLRf5t2PomAX8huK0Nx17kzlggj5PejtnR0GwfZA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jrcar\\RiderProjects\\System.Speech\\IA\\IA.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jrcar\\.nuget\\packages\\system.speech\\8.0.0-preview.6.23329.7\\system.speech.8.0.0-preview.6.23329.7.nupkg.sha512"
+  ],
+  "logs": []
+}
