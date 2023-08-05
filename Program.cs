@@ -1,8 +1,7 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
-using System.Threading.Tasks;
+
 internal class Program
 {
     private static void Main(string[] args)
@@ -19,9 +18,9 @@ internal class Program
             var grammar = new Grammar(grammarBuilder);
 
             recognizer.LoadGrammar(grammar);
-            bool exitProgram = false; // Initialize a flag to control program exit
+            var exitProgram = false; // Initialize a flag to control program exit
 
-            recognizer.SpeechRecognized +=  (s, e) =>
+            recognizer.SpeechRecognized += (s, e) =>
             {
                 // Check the confidence level to filter out low-confidence recognitions
                 if (e.Result.Confidence >= 0.7f)
@@ -56,7 +55,7 @@ internal class Program
                             break;
                         case "apagar la computadora":
                             synthesizer.Speak("Apagando la computadora en 5 segundos.");
-                            System.Diagnostics.Process.Start("shutdown", "/s /t 10"); // Initiates shutdown in 10 seconds
+                            Process.Start("shutdown", "/s /t 10"); // Initiates shutdown in 10 seconds
                             break;
                         case "salir": // Add a new case for the exit command
                             exitProgram = true;
@@ -77,7 +76,5 @@ internal class Program
                 // For example, you can perform other actions while waiting for the user's command
             }
         }
-        
     }
-    
 }
