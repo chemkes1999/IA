@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
 
@@ -24,7 +23,7 @@ internal class Program
             recognizer.SpeechRecognized += (s, e) =>
             {
                 // Check the confidence level to filter out low-confidence recognitions
-                if (e.Result.Confidence >= 0.7f)
+                if (e.Result.Confidence >= 0.5f)
                 {
                     var question = e.Result.Text;
 
@@ -34,10 +33,12 @@ internal class Program
                             synthesizer.Speak("Hola! Cómo puedo ayudarte?");
                             break;
                         case "como estas":
-                            synthesizer.Speak("Solo soy una inteligencia artificial, no puedo tener emociones, pero me siento bien.");
+                            synthesizer.Speak(
+                                "Solo soy una inteligencia artificial, no puedo tener emociones, pero me siento bien.");
                             break;
                         case "como te llamas":
-                            synthesizer.Speak("Yo soy una inteligencia artificial, soy tu asistente. Puedes llamarme navi.");
+                            synthesizer.Speak(
+                                "Yo soy una inteligencia artificial, soy tu asistente. Puedes llamarme navi.");
                             break;
                         case "dime un chiste":
                             synthesizer.Speak("Qué hace un perro con un taladro?. Taladrando.");
@@ -46,7 +47,8 @@ internal class Program
                             synthesizer.Speak("Mi creador se llama Carlos Hemkes.");
                             break;
                         case "cantame":
-                            synthesizer.Speak("De la sierra morena, Cielito lindo, vienen bajando, Un par de ojitos negros, Cielito lindo, de contrabando. Ay, ay, ay, ay, Canta y no llores, Porque cantando se alegran, Cielito lindo, los corazones.");
+                            synthesizer.Speak(
+                                "De la sierra morena, Cielito lindo, vienen bajando, Un par de ojitos negros, Cielito lindo, de contrabando. Ay, ay, ay, ay, Canta y no llores, Porque cantando se alegran, Cielito lindo, los corazones.");
                             break;
                         case "que hora es":
                             var horaActual = DateTime.Now.ToString("hh:mm tt");
